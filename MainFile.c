@@ -28,7 +28,7 @@ int main(void)
 {
 
 	sei();           // Globale Interrupts aktivieren
-	InitDDR();
+	InitDDR();		//hello
 	InitPWM();
 	InitTIM0();
 	InitADC(1,0);
