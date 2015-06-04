@@ -12,16 +12,19 @@
 #include "Functions.h"
 #include "States.h"
 
+#define backLEDRight 
+#define backLEDLeft 
+#define unterLED 
+#define irReceiverLeft 
+#define irReceiverRight 
+#define usTriggerLeft 
+#define usEchoLeft 
+#define usTriggerRight 
+#define usEchoRight 
 
 char toggle = 0;
 char tim0 = 0;
-unsigned char IRLeftOff;
-unsigned char IRLeftOn;
-unsigned char IRRightOn;
-unsigned char IRRightOff;
-unsigned char command=0;
-unsigned char counter=0;
-
+unsigned char irLeftOff,irLeftOn, irRightOn, irRightOff, command=0, counter=0;
 
 
 int main(void)
@@ -32,17 +35,16 @@ int main(void)
 	InitPWM();
 	InitTIM0();
 	InitADC(1,0);
-	UARTConfig();
+	InitUART();
 	PORTD |= (1<<PD4);
-    char x = 3;
 	while(1)
     {
 		
-			if (leftLineDetector > x)
+			if (leftLineDetector > followLineParameter)
 			{
 				Drive(255,0);
 			}
-			if (rightLineDetector > x)
+			if (rightLineDetector > followLineParameter)
 			{
 				Drive(0,255);
 			}
@@ -50,7 +52,7 @@ int main(void)
     }	
 }
 
-ISR(TIMER0_OVF_vect)
+ISR(TIMER0_OVF_vect)  // Tenho que mudar para outro arqiuvo que nao o main e preciso ver se usa alguma variavel do ISR no programa principal se nao ele nao é incluido
 {	
 	tim0++;
 	if (tim0 > 1)
@@ -59,19 +61,17 @@ ISR(TIMER0_OVF_vect)
 		if (tim0 > 2)
 		{
 			tim0 = 0;
-			
-			
 			InitADC(1,0);
-			IRLeftOn = ADCH;
+			irLeftOn = ADCH;
 			InitADC(0,1);
-			IRRightOn = ADCH;
-			leftLineDetector = IRLeftOff - IRLeftOn;
-			rightLineDetector = IRRightOn - IRRightOff;	
-			Output(IRLeftOff);
-			Output(IRLeftOn);
+			irRightOn = ADCH;
+			leftLineDetector = irLeftOff - irLeftOn;
+			rightLineDetector = irRightOn - irRightOff;	
+			Output(irLeftOff);
+			Output(irLeftOn);
 			Output(leftLineDetector);
-			Output(IRRightOn);
-			Output(IRRightOff);
+			Output(irRightOn);
+			Output(irRightOff);
 			Output(rightLineDetector);
 		}
 	}
@@ -81,9 +81,9 @@ ISR(TIMER0_OVF_vect)
 		if (tim0 > 0)
 		{
 			InitADC(1,0);
-			IRLeftOff = ADCH;
+			irLeftOff = ADCH;
 			InitADC(0,1);
-			IRRightOff = ADCH;
+			irRightOff = ADCH;
 		}
 	}
 
@@ -97,16 +97,12 @@ ISR(USART_RXC_vect){
 	{
 		Drive(0,0);
 		PORTC &= ~(1<<PC4);
-		PORTD |= (1<<PD5);
-		PORTD |= (1<<PD4);
-		PORTD |= (1<<PD6)|(1<<PD7);
+		PORTD |=(1<<PD4)|(1<<PD5)|(1<<PD6)|(1<<PD7);
 	}
 	if (command == 'c')
 	{
 		Drive(255,255);
-		PORTC &= ~(1<<PC4);
-		PORTD &= ~(1<<PD5);
-		PORTD &= ~(1<<PD4);
+		PORTC &= ~((1<<PC4)|(1<<PD5)|(1<<PD4));
 		PORTD |= (1<<PD6)|(1<<PD7);
 	}
 }

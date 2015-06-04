@@ -2,19 +2,21 @@ Archive member included because of file (symbol)
 
 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
                               d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o (exit)
+d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+                              MainFile.o (__do_copy_data)
 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
                               MainFile.o (__do_clear_bss)
 
 Allocating common symbols
 Common symbol       size              file
 
-IRLeftOff           0x1               MainFile.o
+irRightOff          0x1               MainFile.o
 rightLineDetector   0x1               MainFile.o
 direction           0x1               MainFile.o
-IRLeftOn            0x1               MainFile.o
-IRRightOff          0x1               MainFile.o
+irLeftOn            0x1               MainFile.o
+irLeftOff           0x1               MainFile.o
+irRightOn           0x1               MainFile.o
 findline            0x2               MainFile.o
-IRRightOn           0x1               MainFile.o
 leftLineDetector    0x1               MainFile.o
 
 Discarded input sections
@@ -24,7 +26,7 @@ Discarded input sections
  .text          0x00000000        0x0 MainFile.o
  .data          0x00000000        0x0 MainFile.o
  .bss           0x00000000        0x0 MainFile.o
- .text.LineFollow
+ .text.FollowLine
                 0x00000000      0x134 MainFile.o
  .bss.counter   0x00000000        0x1 MainFile.o
  .bss.toggle    0x00000000        0x1 MainFile.o
@@ -44,6 +46,22 @@ Discarded input sections
                 0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
  .text          0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
  .data          0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
  .bss           0x00000000        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
@@ -176,7 +194,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x276
+.text           0x00000000      0x290
  *(.vectors)
  .vectors       0x00000000       0x26 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vector_default
@@ -215,8 +233,10 @@ END GROUP
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000032       0x10 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
-                0x00000032                __do_clear_bss
+ .init4         0x00000032       0x16 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_copy_data.o)
+                0x00000032                __do_copy_data
+ .init4         0x00000048       0x10 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_clear_bss.o)
+                0x00000048                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -227,58 +247,58 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000042        0x4 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o
+ .init9         0x00000058        0x4 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o
  *(.init9)
  *(.text)
- .text          0x00000046        0x2 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o
-                0x00000046                __vector_1
-                0x00000046                __vector_12
-                0x00000046                __bad_interrupt
-                0x00000046                __vector_6
-                0x00000046                __vector_3
-                0x00000046                __vector_13
-                0x00000046                __vector_17
-                0x00000046                __vector_7
-                0x00000046                __vector_5
-                0x00000046                __vector_4
-                0x00000046                __vector_2
-                0x00000046                __vector_15
-                0x00000046                __vector_8
-                0x00000046                __vector_14
-                0x00000046                __vector_10
-                0x00000046                __vector_16
-                0x00000046                __vector_18
-                0x00000048                . = ALIGN (0x2)
+ .text          0x0000005c        0x2 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o
+                0x0000005c                __vector_1
+                0x0000005c                __vector_12
+                0x0000005c                __bad_interrupt
+                0x0000005c                __vector_6
+                0x0000005c                __vector_3
+                0x0000005c                __vector_13
+                0x0000005c                __vector_17
+                0x0000005c                __vector_7
+                0x0000005c                __vector_5
+                0x0000005c                __vector_4
+                0x0000005c                __vector_2
+                0x0000005c                __vector_15
+                0x0000005c                __vector_8
+                0x0000005c                __vector_14
+                0x0000005c                __vector_10
+                0x0000005c                __vector_16
+                0x0000005c                __vector_18
+                0x0000005e                . = ALIGN (0x2)
  *(.text.*)
- .text.UARTConfig
-                0x00000048       0x10 MainFile.o
-                0x00000048                UARTConfig
- .text.InitADC  0x00000058       0x44 MainFile.o
-                0x00000058                InitADC
- .text.InitPWM  0x0000009c       0x1a MainFile.o
-                0x0000009c                InitPWM
- .text.InitDDR  0x000000b6       0x16 MainFile.o
-                0x000000b6                InitDDR
+ .text.InitUART
+                0x0000005e       0x10 MainFile.o
+                0x0000005e                InitUART
+ .text.InitADC  0x0000006e       0x44 MainFile.o
+                0x0000006e                InitADC
+ .text.InitPWM  0x000000b2       0x1a MainFile.o
+                0x000000b2                InitPWM
+ .text.InitDDR  0x000000cc       0x16 MainFile.o
+                0x000000cc                InitDDR
  .text.InitTIM0
-                0x000000cc        0xe MainFile.o
-                0x000000cc                InitTIM0
- .text.Drive    0x000000da        0xa MainFile.o
-                0x000000da                Drive
- .text.Output   0x000000e4        0xe MainFile.o
-                0x000000e4                Output
- .text.main     0x000000f2       0x30 MainFile.o
-                0x000000f2                main
+                0x000000e2        0xe MainFile.o
+                0x000000e2                InitTIM0
+ .text.Drive    0x000000f0        0xa MainFile.o
+                0x000000f0                Drive
+ .text.Output   0x000000fa        0xe MainFile.o
+                0x000000fa                Output
+ .text.main     0x00000108       0x38 MainFile.o
+                0x00000108                main
  .text.__vector_9
-                0x00000122       0xd6 MainFile.o
-                0x00000122                __vector_9
+                0x00000140       0xd6 MainFile.o
+                0x00000140                __vector_9
  .text.__vector_11
-                0x000001f8       0x7a MainFile.o
-                0x000001f8                __vector_11
-                0x00000272                . = ALIGN (0x2)
+                0x00000216       0x76 MainFile.o
+                0x00000216                __vector_11
+                0x0000028c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000272        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
-                0x00000272                _exit
-                0x00000272                exit
+ .fini9         0x0000028c        0x0 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+                0x0000028c                _exit
+                0x0000028c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -297,49 +317,53 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000272        0x4 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
+ .fini0         0x0000028c        0x4 d:/arquivos/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000276                _etext = .
+                0x00000290                _etext = .
 
-.data           0x00800060        0x0 load address 0x00000276
+.data           0x00800060        0x2 load address 0x00000290
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data.followLineParameter
+                0x00800060        0x1 MainFile.o
+                0x00800060                followLineParameter
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800060                . = ALIGN (0x2)
-                0x00800060                _edata = .
-                0x00800060                PROVIDE (__data_end, .)
+                0x00800062                . = ALIGN (0x2)
+ *fill*         0x00800061        0x1 
+                0x00800062                _edata = .
+                0x00800062                PROVIDE (__data_end, .)
 
-.bss            0x00800060        0xb
-                0x00800060                PROVIDE (__bss_start, .)
+.bss            0x00800062        0xb
+                0x00800062                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.command   0x00800060        0x1 MainFile.o
-                0x00800060                command
- .bss.tim0      0x00800061        0x1 MainFile.o
-                0x00800061                tim0
+ .bss.command   0x00800062        0x1 MainFile.o
+                0x00800062                command
+ .bss.tim0      0x00800063        0x1 MainFile.o
+                0x00800063                tim0
  *(COMMON)
- COMMON         0x00800062        0x9 MainFile.o
-                0x00800062                IRLeftOff
-                0x00800063                rightLineDetector
-                0x00800064                direction
-                0x00800065                IRLeftOn
-                0x00800066                IRRightOff
-                0x00800067                findline
-                0x00800069                IRRightOn
-                0x0080006a                leftLineDetector
-                0x0080006b                PROVIDE (__bss_end, .)
-                0x00000276                __data_load_start = LOADADDR (.data)
-                0x00000276                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800064        0x9 MainFile.o
+                0x00800064                irRightOff
+                0x00800065                rightLineDetector
+                0x00800066                direction
+                0x00800067                irLeftOn
+                0x00800068                irLeftOff
+                0x00800069                irRightOn
+                0x0080006a                findline
+                0x0080006c                leftLineDetector
+                0x0080006d                PROVIDE (__bss_end, .)
+                0x00000290                __data_load_start = LOADADDR (.data)
+                0x00000292                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080006b        0x0
-                0x0080006b                PROVIDE (__noinit_start, .)
+.noinit         0x0080006d        0x0
+                0x0080006d                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080006b                PROVIDE (__noinit_end, .)
-                0x0080006b                _end = .
-                0x0080006b                PROVIDE (__heap_start, .)
+                0x0080006d                PROVIDE (__noinit_end, .)
+                0x0080006d                _end = .
+                0x0080006d                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -406,26 +430,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x49a
+.debug_info     0x00000000      0x4a4
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x49a MainFile.o
+ .debug_info    0x00000000      0x4a4 MainFile.o
 
 .debug_abbrev   0x00000000      0x124
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x124 MainFile.o
 
-.debug_line     0x00000000      0x21d
+.debug_line     0x00000000      0x219
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x21d MainFile.o
+ .debug_line    0x00000000      0x219 MainFile.o
 
 .debug_frame    0x00000000      0x154
  *(.debug_frame)
  .debug_frame   0x00000000      0x154 MainFile.o
 
-.debug_str      0x00000000      0x23c
+.debug_str      0x00000000      0x22f
  *(.debug_str)
- .debug_str     0x00000000      0x23c MainFile.o
-                                0x275 (size before relaxing)
+ .debug_str     0x00000000      0x22f MainFile.o
+                                0x268 (size before relaxing)
 
 .debug_loc      0x00000000      0x1d0
  *(.debug_loc)

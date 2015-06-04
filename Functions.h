@@ -1,7 +1,7 @@
-char leftLineDetector, rightLineDetector, direction;
+char leftLineDetector, rightLineDetector, direction, followLineParameter = 3;
 uint16_t findline;
 
-void Drive(unsigned char richtung_l, unsigned char richtung_r); //Maybe we don't really need it
+void Drive(unsigned char rightWheel, unsigned char leftWheel); //Maybe we don't really need it
 
 
 void Drive(unsigned char rightWheel, unsigned char leftWheel){
@@ -13,10 +13,10 @@ void Drive(unsigned char rightWheel, unsigned char leftWheel){
 	
 }
 
-void LineFollow(void)
+void FollowLine(void)
 {
-	char x = 25;
-	if (leftLineDetector < x && rightLineDetector > x)	//at the line right
+	char followLineParameter = 25;
+	if (leftLineDetector < followLineParameter && rightLineDetector > followLineParameter)	//at the line right
 	{
 		findline = 900;
 		direction = 1;
@@ -25,7 +25,7 @@ void LineFollow(void)
 		PORTD |= (1<<PD4);
 		PORTD |= (1<<PD6)|(1<<PD7);
 	}
-	if (leftLineDetector > x && rightLineDetector < x)	//at the line left
+	if (leftLineDetector > followLineParameter && rightLineDetector < followLineParameter)	//at the line left
 	{
 		findline = 900;
 		direction = 2;
@@ -34,7 +34,7 @@ void LineFollow(void)
 		PORTD |= (1<<PD4);
 		PORTD |= (1<<PD6)|(1<<PD7);
 	}
-	if (leftLineDetector < x && rightLineDetector < x)	//on the line
+	if (leftLineDetector < followLineParameter && rightLineDetector < followLineParameter)	//on the line
 	{
 		findline = 900;
 		Drive(0,0);
@@ -42,7 +42,7 @@ void LineFollow(void)
 		PORTD |= (1<<PD4);
 		PORTD |= (1<<PD6)|(1<<PD7);
 	}
-	if (leftLineDetector > x && rightLineDetector > x) //No line
+	if (leftLineDetector > followLineParameter && rightLineDetector > followLineParameter) //No line
 	{
 		findline++;
 		

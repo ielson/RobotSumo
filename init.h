@@ -1,7 +1,7 @@
 void InitDDR(void); // I don't know if we really need this
 void InitPWM(void);
 
-void UARTConfig(){
+void InitUART(){
 	UBRRH = 0;
 	UBRRL = 51; 					//Baudrate 9600, Asynchronous Normal mode
 	UCSRC =(1<<URSEL)|(1<<UCSZ1)|(1<<UCSZ0); 	//Frameformat 8Bit, 1 Stopbit, no Parity
