@@ -1,5 +1,15 @@
-void InitDDR(void); // I don't know if we really need this
-void InitPWM(void);
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+#define ledBackRight PD5
+#define ledBackLeft PD4
+#define irSender PC4
+#define irReceiverLeft PC2
+#define irReceiverRight PC3
+#define usTriggerLeft PC0
+#define usEchoLeft PD3
+#define usTriggerRight PC1
+#define usEchoRight PD2
 
 void InitUART(){
 	UBRRH = 0;
@@ -47,12 +57,12 @@ void InitPWM(void){
 void InitDDR(void){			//DDR-config
 	//OUTPUT
 	DDRB |= (1<<PB1)|(1<<PB2);	//PWM
-	DDRC |= (1<<PC4);			//LED
+	DDRC |= (1<<irSender);			//LED
 	DDRD |= (1<<PD6)|(1<<PD7);	//motor enable
-	DDRD |= (1<<PD4)|(1<<PD5);	//back led
+	DDRD |= (1<<ledBackLeft)|(1<<ledBackRight);	//back led
 }
 
 void InitTIM0(void){
 	TIMSK |= (1<<TOIE0);         //Overflow Interrupt aktivieren
-	TCCR0 |= (1<<CS02)|(1<<CS00);       // Prescaler auf 1 setzen, Takt = 8MHz
+	TCCR0 |= (1<<CS01);       // Prescaler auf 1 setzen, Takt = 8MHz
 }

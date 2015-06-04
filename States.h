@@ -1,16 +1,19 @@
-/*
- * IncFile1.h
- *
- * Created: 03/06/2015 18:13:38
- *  Author: D. Andrade
- */ 
+void Survive(void)
+{
+	
+}
 
+void Hunt(void)
+{
+	
+}
 
-#ifndef INCFILE1_H_
-#define INCFILE1_H_
+void Target(void)
+{
+	
+}
 
-
-
-
-
-#endif /* INCFILE1_H_ */
+void Attack(void)
+{
+	
+}

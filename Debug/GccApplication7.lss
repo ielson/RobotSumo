@@ -3,29 +3,27 @@ GccApplication7.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000290  00000000  00000000  00000094  2**1
+  0 .text         0000023e  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000002  00800060  00000290  00000324  2**0
-                  CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          0000000b  00800062  00800062  00000326  2**0
+  1 .bss          0000000e  00800060  00800060  000002b2  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000326  2**0
+  2 .comment      00000030  00000000  00000000  000002b2  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000070  00000000  00000000  00000356  2**0
+  3 .debug_aranges 000000a8  00000000  00000000  000002e2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000004a4  00000000  00000000  000003c6  2**0
+  4 .debug_info   00000501  00000000  00000000  0000038a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000124  00000000  00000000  0000086a  2**0
+  5 .debug_abbrev 00000133  00000000  00000000  0000088b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000219  00000000  00000000  0000098e  2**0
+  6 .debug_line   0000029b  00000000  00000000  000009be  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000154  00000000  00000000  00000ba8  2**2
+  7 .debug_frame  000001c4  00000000  00000000  00000c5c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000022f  00000000  00000000  00000cfc  2**0
+  8 .debug_str    00000272  00000000  00000000  00000e20  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000001d0  00000000  00000000  00000f2b  2**0
+  9 .debug_loc    000001e3  00000000  00000000  00001092  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000060  00000000  00000000  000010fb  2**0
+ 10 .debug_ranges 00000098  00000000  00000000  00001275  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -40,9 +38,9 @@ Disassembly of section .text:
    c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
    e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
   10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
-  12:	96 c0       	rjmp	.+300    	; 0x140 <__vector_9>
+  12:	75 c0       	rjmp	.+234    	; 0xfe <__vector_9>
   14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
-  16:	ff c0       	rjmp	.+510    	; 0x216 <__vector_11>
+  16:	d1 c0       	rjmp	.+418    	; 0x1ba <__vector_11>
   18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
   1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
   1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
@@ -63,18 +61,18 @@ Disassembly of section .text:
   32:	10 e0       	ldi	r17, 0x00	; 0
   34:	a0 e6       	ldi	r26, 0x60	; 96
   36:	b0 e0       	ldi	r27, 0x00	; 0
-  38:	e0 e9       	ldi	r30, 0x90	; 144
+  38:	ee e3       	ldi	r30, 0x3E	; 62
   3a:	f2 e0       	ldi	r31, 0x02	; 2
   3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
   3e:	05 90       	lpm	r0, Z+
   40:	0d 92       	st	X+, r0
-  42:	a2 36       	cpi	r26, 0x62	; 98
+  42:	a0 36       	cpi	r26, 0x60	; 96
   44:	b1 07       	cpc	r27, r17
   46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
 
 00000048 <__do_clear_bss>:
   48:	20 e0       	ldi	r18, 0x00	; 0
-  4a:	a2 e6       	ldi	r26, 0x62	; 98
+  4a:	a0 e6       	ldi	r26, 0x60	; 96
   4c:	b0 e0       	ldi	r27, 0x00	; 0
   4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
 
@@ -82,11 +80,11 @@ Disassembly of section .text:
   50:	1d 92       	st	X+, r1
 
 00000052 <.do_clear_bss_start>:
-  52:	ad 36       	cpi	r26, 0x6D	; 109
+  52:	ae 36       	cpi	r26, 0x6E	; 110
   54:	b2 07       	cpc	r27, r18
   56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
-  58:	57 d0       	rcall	.+174    	; 0x108 <main>
-  5a:	18 c1       	rjmp	.+560    	; 0x28c <_exit>
+  58:	db d0       	rcall	.+438    	; 0x210 <main>
+  5a:	ef c0       	rjmp	.+478    	; 0x23a <_exit>
 
 0000005c <__bad_interrupt>:
   5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
@@ -95,14 +93,14 @@ Disassembly of section .text:
 		findline = 900;
 		direction = 2;
 		Drive(0,125);
-		PORTD |= (1<<PD5);
-		PORTD |= (1<<PD4);
+		PORTD |= (1<<ledBackRight);
+		PORTD |= (1<<ledBackLeft);
 		PORTD |= (1<<PD6)|(1<<PD7);
   5e:	10 bc       	out	0x20, r1	; 32
   60:	83 e3       	ldi	r24, 0x33	; 51
   62:	89 b9       	out	0x09, r24	; 9
 	}
-	if (leftLineDetector < followLineParameter && rightLineDetector < followLineParameter)	//on the line
+	if (leftLineDetector > lineParameter && rightLineDetector > lineParameter)	//on the line
   64:	86 e8       	ldi	r24, 0x86	; 134
   66:	80 bd       	out	0x20, r24	; 32
   68:	88 e9       	ldi	r24, 0x98	; 152
@@ -125,16 +123,16 @@ Disassembly of section .text:
   80:	21 f4       	brne	.+8      	; 0x8a <InitADC+0x1c>
   82:	61 30       	cpi	r22, 0x01	; 1
   84:	29 f0       	breq	.+10     	; 0x90 <InitADC+0x22>
-		PORTD |= (1<<PD5);
+		PORTD |= (1<<ledBackRight);
   86:	90 e0       	ldi	r25, 0x00	; 0
-		PORTD |= (1<<PD4);
+		PORTD |= (1<<ledBackLeft);
   88:	01 c0       	rjmp	.+2      	; 0x8c <InitADC+0x1e>
 		PORTD |= (1<<PD6)|(1<<PD7);
   8a:	90 e0       	ldi	r25, 0x00	; 0
   8c:	90 ff       	sbrs	r25, 0
   8e:	02 c0       	rjmp	.+4      	; 0x94 <InitADC+0x26>
 	}
-	if (leftLineDetector > followLineParameter && rightLineDetector > followLineParameter) //No line
+	if (leftLineDetector < lineParameter && rightLineDetector < lineParameter) //No line
   90:	90 e6       	ldi	r25, 0x60	; 96
   92:	97 b9       	out	0x07, r25	; 7
   94:	81 30       	cpi	r24, 0x01	; 1
@@ -174,11 +172,11 @@ Disassembly of section .text:
   c4:	1a bc       	out	0x2a, r1	; 42
   c6:	19 bc       	out	0x29, r1	; 41
   c8:	18 bc       	out	0x28, r1	; 40
-				PORTD |= (1<<PD5);
+				PORTD |= (1<<ledBackRight);
   ca:	08 95       	ret
 
 000000cc <InitDDR>:
-				PORTD &= ~(1<<PD4);
+				PORTD &= ~(1<<ledBackLeft);
   cc:	87 b3       	in	r24, 0x17	; 23
 				PORTD |= (1<<PD7);
   ce:	86 60       	ori	r24, 0x06	; 6
@@ -192,9 +190,9 @@ Disassembly of section .text:
   d4:	81 b3       	in	r24, 0x11	; 17
   d6:	80 6c       	ori	r24, 0xC0	; 192
   d8:	81 bb       	out	0x11, r24	; 17
-				PORTD |= (1<<PD5);
+				PORTD |= (1<<ledBackRight);
   da:	81 b3       	in	r24, 0x11	; 17
-				PORTD &= ~(1<<PD4);
+				PORTD &= ~(1<<ledBackLeft);
   dc:	80 63       	ori	r24, 0x30	; 48
 				PORTD |= (1<<PD6);
   de:	81 bb       	out	0x11, r24	; 17
@@ -209,285 +207,249 @@ Disassembly of section .text:
   e4:	81 60       	ori	r24, 0x01	; 1
   e6:	89 bf       	out	0x39, r24	; 57
   e8:	83 b7       	in	r24, 0x33	; 51
-  ea:	85 60       	ori	r24, 0x05	; 5
+  ea:	82 60       	ori	r24, 0x02	; 2
   ec:	83 bf       	out	0x33, r24	; 51
   ee:	08 95       	ret
 
-000000f0 <Drive>:
+000000f0 <Output>:
 		{
 			Drive(255,100);
-  f0:	1b bc       	out	0x2b, r1	; 43
-  f2:	6a bd       	out	0x2a, r22	; 42
-  f4:	19 bc       	out	0x29, r1	; 41
-			PORTD |= (1<<PD5);
-  f6:	88 bd       	out	0x28, r24	; 40
-			PORTD &= ~(1<<PD4);
-  f8:	08 95       	ret
-
-000000fa <Output>:
+  f0:	5d 9b       	sbis	0x0b, 5	; 11
+  f2:	fe cf       	rjmp	.-4      	; 0xf0 <Output>
+  f4:	8c b9       	out	0x0c, r24	; 12
+			PORTD |= (1<<ledBackRight);
+  f6:	5e 9b       	sbis	0x0b, 6	; 11
+			PORTD &= ~(1<<ledBackLeft);
+  f8:	fe cf       	rjmp	.-4      	; 0xf6 <Output+0x6>
 			PORTD |= (1<<PD6);
-  fa:	5d 9b       	sbis	0x0b, 5	; 11
+  fa:	5e 9a       	sbi	0x0b, 6	; 11
 			PORTD &= ~(1<<PD7);
-  fc:	fe cf       	rjmp	.-4      	; 0xfa <Output>
+  fc:	08 95       	ret
+
+000000fe <__vector_9>:
 		}
 		if (findline>6000)
-  fe:	8c b9       	out	0x0c, r24	; 12
- 100:	5e 9b       	sbis	0x0b, 6	; 11
- 102:	fe cf       	rjmp	.-4      	; 0x100 <Output+0x6>
- 104:	5e 9a       	sbi	0x0b, 6	; 11
- 106:	08 95       	ret
-
-00000108 <main>:
- 108:	78 94       	sei
- 10a:	e0 df       	rcall	.-64     	; 0xcc <InitDDR>
+  fe:	1f 92       	push	r1
+ 100:	0f 92       	push	r0
+ 102:	0f b6       	in	r0, 0x3f	; 63
+ 104:	0f 92       	push	r0
+ 106:	11 24       	eor	r1, r1
+ 108:	2f 93       	push	r18
+ 10a:	3f 93       	push	r19
 		{
 			Drive(0,0);
- 10c:	d2 df       	rcall	.-92     	; 0xb2 <InitPWM>
- 10e:	e9 df       	rcall	.-46     	; 0xe2 <InitTIM0>
- 110:	60 e0       	ldi	r22, 0x00	; 0
-			PORTD |= (1<<PD5);
- 112:	81 e0       	ldi	r24, 0x01	; 1
-			PORTD |= (1<<PD4);
- 114:	ac df       	rcall	.-168    	; 0x6e <InitADC>
+ 10c:	4f 93       	push	r20
+ 10e:	5f 93       	push	r21
+ 110:	6f 93       	push	r22
+			PORTD |= (1<<ledBackRight);
+ 112:	7f 93       	push	r23
+			PORTD |= (1<<ledBackLeft);
+ 114:	8f 93       	push	r24
 			PORTD |= (1<<PD6)|(1<<PD7);
- 116:	a3 df       	rcall	.-186    	; 0x5e <InitUART>
- 118:	94 9a       	sbi	0x12, 4	; 18
- 11a:	90 91 6c 00 	lds	r25, 0x006C
+ 116:	9f 93       	push	r25
+ 118:	af 93       	push	r26
+ 11a:	bf 93       	push	r27
 		}
 		if (findline>8000)
- 11e:	80 91 60 00 	lds	r24, 0x0060
- 122:	89 17       	cp	r24, r25
- 124:	18 f4       	brcc	.+6      	; 0x12c <main+0x24>
- 126:	60 e0       	ldi	r22, 0x00	; 0
- 128:	8f ef       	ldi	r24, 0xFF	; 255
+ 11c:	ef 93       	push	r30
+ 11e:	ff 93       	push	r31
+ 120:	80 91 60 00 	lds	r24, 0x0060
+ 124:	8f 5f       	subi	r24, 0xFF	; 255
+ 126:	80 93 60 00 	sts	0x0060, r24
 		{
 			findline=0;
- 12a:	e2 df       	rcall	.-60     	; 0xf0 <Drive>
- 12c:	90 91 65 00 	lds	r25, 0x0065
+ 12a:	82 30       	cpi	r24, 0x02	; 2
+ 12c:	20 f1       	brcs	.+72     	; 0x176 <__vector_9+0x78>
+ 12e:	ac 9a       	sbi	0x15, 4	; 21
  130:	80 91 60 00 	lds	r24, 0x0060
-		
-			if (leftLineDetector > followLineParameter)
-			{
-				Drive(255,0);
-			}
-			if (rightLineDetector > followLineParameter)
- 134:	89 17       	cp	r24, r25
- 136:	88 f7       	brcc	.-30     	; 0x11a <main+0x12>
-			{
-				Drive(0,255);
- 138:	6f ef       	ldi	r22, 0xFF	; 255
- 13a:	80 e0       	ldi	r24, 0x00	; 0
- 13c:	d9 df       	rcall	.-78     	; 0xf0 <Drive>
- 13e:	ed cf       	rjmp	.-38     	; 0x11a <main+0x12>
-
-00000140 <__vector_9>:
-		
-    }	
-}
-
-ISR(TIMER0_OVF_vect)  // Tenho que mudar para outro arqiuvo que nao o main e preciso ver se usa alguma variavel do ISR no programa principal se nao ele nao é incluido
-{	
- 140:	1f 92       	push	r1
- 142:	0f 92       	push	r0
- 144:	0f b6       	in	r0, 0x3f	; 63
- 146:	0f 92       	push	r0
- 148:	11 24       	eor	r1, r1
- 14a:	2f 93       	push	r18
- 14c:	3f 93       	push	r19
- 14e:	4f 93       	push	r20
- 150:	5f 93       	push	r21
- 152:	6f 93       	push	r22
- 154:	7f 93       	push	r23
- 156:	8f 93       	push	r24
- 158:	9f 93       	push	r25
- 15a:	af 93       	push	r26
- 15c:	bf 93       	push	r27
- 15e:	ef 93       	push	r30
- 160:	ff 93       	push	r31
+{
 	tim0++;
- 162:	80 91 63 00 	lds	r24, 0x0063
- 166:	8f 5f       	subi	r24, 0xFF	; 255
- 168:	80 93 63 00 	sts	0x0063, r24
 	if (tim0 > 1)
- 16c:	82 30       	cpi	r24, 0x02	; 2
- 16e:	88 f1       	brcs	.+98     	; 0x1d2 <__vector_9+0x92>
 	{
-		PORTC |= (1<<PC4);
- 170:	ac 9a       	sbi	0x15, 4	; 21
+		PORTC |= (1<<irSender);
 		if (tim0 > 2)
- 172:	80 91 63 00 	lds	r24, 0x0063
- 176:	83 30       	cpi	r24, 0x03	; 3
- 178:	e8 f1       	brcs	.+122    	; 0x1f4 <__vector_9+0xb4>
+ 134:	83 30       	cpi	r24, 0x03	; 3
+ 136:	80 f1       	brcs	.+96     	; 0x198 <__vector_9+0x9a>
 		{
 			tim0 = 0;
- 17a:	10 92 63 00 	sts	0x0063, r1
+ 138:	10 92 60 00 	sts	0x0060, r1
 			InitADC(1,0);
- 17e:	60 e0       	ldi	r22, 0x00	; 0
- 180:	81 e0       	ldi	r24, 0x01	; 1
- 182:	75 df       	rcall	.-278    	; 0x6e <InitADC>
+ 13c:	60 e0       	ldi	r22, 0x00	; 0
+ 13e:	81 e0       	ldi	r24, 0x01	; 1
+ 140:	96 df       	rcall	.-212    	; 0x6e <InitADC>
 			irLeftOn = ADCH;
- 184:	85 b1       	in	r24, 0x05	; 5
- 186:	80 93 67 00 	sts	0x0067, r24
+ 142:	85 b1       	in	r24, 0x05	; 5
+ 144:	80 93 67 00 	sts	0x0067, r24
 			InitADC(0,1);
- 18a:	61 e0       	ldi	r22, 0x01	; 1
- 18c:	80 e0       	ldi	r24, 0x00	; 0
- 18e:	6f df       	rcall	.-290    	; 0x6e <InitADC>
+ 148:	61 e0       	ldi	r22, 0x01	; 1
+ 14a:	80 e0       	ldi	r24, 0x00	; 0
+ 14c:	90 df       	rcall	.-224    	; 0x6e <InitADC>
 			irRightOn = ADCH;
- 190:	95 b1       	in	r25, 0x05	; 5
- 192:	90 93 69 00 	sts	0x0069, r25
+ 14e:	95 b1       	in	r25, 0x05	; 5
+ 150:	90 93 69 00 	sts	0x0069, r25
 			leftLineDetector = irLeftOff - irLeftOn;
- 196:	80 91 68 00 	lds	r24, 0x0068
- 19a:	20 91 67 00 	lds	r18, 0x0067
- 19e:	38 2f       	mov	r19, r24
- 1a0:	32 1b       	sub	r19, r18
- 1a2:	30 93 6c 00 	sts	0x006C, r19
-			rightLineDetector = irRightOn - irRightOff;	
- 1a6:	20 91 64 00 	lds	r18, 0x0064
- 1aa:	92 1b       	sub	r25, r18
- 1ac:	90 93 65 00 	sts	0x0065, r25
-			Output(irLeftOff);
- 1b0:	a4 df       	rcall	.-184    	; 0xfa <Output>
-			Output(irLeftOn);
- 1b2:	80 91 67 00 	lds	r24, 0x0067
- 1b6:	a1 df       	rcall	.-190    	; 0xfa <Output>
+ 154:	80 91 68 00 	lds	r24, 0x0068
+ 158:	20 91 67 00 	lds	r18, 0x0067
+ 15c:	82 1b       	sub	r24, r18
+ 15e:	80 93 6d 00 	sts	0x006D, r24
+			rightLineDetector = irRightOn - irRightOff;
+ 162:	20 91 62 00 	lds	r18, 0x0062
+ 166:	92 1b       	sub	r25, r18
+ 168:	90 93 63 00 	sts	0x0063, r25
 			Output(leftLineDetector);
- 1b8:	80 91 6c 00 	lds	r24, 0x006C
- 1bc:	9e df       	rcall	.-196    	; 0xfa <Output>
-			Output(irRightOn);
- 1be:	80 91 69 00 	lds	r24, 0x0069
- 1c2:	9b df       	rcall	.-202    	; 0xfa <Output>
-			Output(irRightOff);
- 1c4:	80 91 64 00 	lds	r24, 0x0064
- 1c8:	98 df       	rcall	.-208    	; 0xfa <Output>
+ 16c:	c1 df       	rcall	.-126    	; 0xf0 <Output>
 			Output(rightLineDetector);
- 1ca:	80 91 65 00 	lds	r24, 0x0065
- 1ce:	95 df       	rcall	.-214    	; 0xfa <Output>
- 1d0:	11 c0       	rjmp	.+34     	; 0x1f4 <__vector_9+0xb4>
+ 16e:	80 91 63 00 	lds	r24, 0x0063
+ 172:	be df       	rcall	.-132    	; 0xf0 <Output>
+ 174:	11 c0       	rjmp	.+34     	; 0x198 <__vector_9+0x9a>
 		}
 	}
 	else
 	{
-		PORTC &= ~(1<<PC4);
- 1d2:	ac 98       	cbi	0x15, 4	; 21
+		PORTC &= ~(1<<irSender);
+ 176:	ac 98       	cbi	0x15, 4	; 21
 		if (tim0 > 0)
- 1d4:	80 91 63 00 	lds	r24, 0x0063
- 1d8:	88 23       	and	r24, r24
- 1da:	61 f0       	breq	.+24     	; 0x1f4 <__vector_9+0xb4>
+ 178:	80 91 60 00 	lds	r24, 0x0060
+ 17c:	88 23       	and	r24, r24
+ 17e:	61 f0       	breq	.+24     	; 0x198 <__vector_9+0x9a>
 		{
 			InitADC(1,0);
- 1dc:	60 e0       	ldi	r22, 0x00	; 0
- 1de:	81 e0       	ldi	r24, 0x01	; 1
- 1e0:	46 df       	rcall	.-372    	; 0x6e <InitADC>
+ 180:	60 e0       	ldi	r22, 0x00	; 0
+ 182:	81 e0       	ldi	r24, 0x01	; 1
+ 184:	74 df       	rcall	.-280    	; 0x6e <InitADC>
 			irLeftOff = ADCH;
- 1e2:	85 b1       	in	r24, 0x05	; 5
- 1e4:	80 93 68 00 	sts	0x0068, r24
+ 186:	85 b1       	in	r24, 0x05	; 5
+ 188:	80 93 68 00 	sts	0x0068, r24
 			InitADC(0,1);
- 1e8:	61 e0       	ldi	r22, 0x01	; 1
- 1ea:	80 e0       	ldi	r24, 0x00	; 0
- 1ec:	40 df       	rcall	.-384    	; 0x6e <InitADC>
+ 18c:	61 e0       	ldi	r22, 0x01	; 1
+ 18e:	80 e0       	ldi	r24, 0x00	; 0
+ 190:	6e df       	rcall	.-292    	; 0x6e <InitADC>
 			irRightOff = ADCH;
- 1ee:	85 b1       	in	r24, 0x05	; 5
- 1f0:	80 93 64 00 	sts	0x0064, r24
+ 192:	85 b1       	in	r24, 0x05	; 5
+ 194:	80 93 62 00 	sts	0x0062, r24
 		}
 	}
 
 }
- 1f4:	ff 91       	pop	r31
- 1f6:	ef 91       	pop	r30
- 1f8:	bf 91       	pop	r27
- 1fa:	af 91       	pop	r26
- 1fc:	9f 91       	pop	r25
- 1fe:	8f 91       	pop	r24
- 200:	7f 91       	pop	r23
- 202:	6f 91       	pop	r22
- 204:	5f 91       	pop	r21
- 206:	4f 91       	pop	r20
- 208:	3f 91       	pop	r19
- 20a:	2f 91       	pop	r18
- 20c:	0f 90       	pop	r0
- 20e:	0f be       	out	0x3f, r0	; 63
- 210:	0f 90       	pop	r0
- 212:	1f 90       	pop	r1
- 214:	18 95       	reti
+ 198:	ff 91       	pop	r31
+ 19a:	ef 91       	pop	r30
+ 19c:	bf 91       	pop	r27
+ 19e:	af 91       	pop	r26
+ 1a0:	9f 91       	pop	r25
+ 1a2:	8f 91       	pop	r24
+ 1a4:	7f 91       	pop	r23
+ 1a6:	6f 91       	pop	r22
+ 1a8:	5f 91       	pop	r21
+ 1aa:	4f 91       	pop	r20
+ 1ac:	3f 91       	pop	r19
+ 1ae:	2f 91       	pop	r18
+ 1b0:	0f 90       	pop	r0
+ 1b2:	0f be       	out	0x3f, r0	; 63
+ 1b4:	0f 90       	pop	r0
+ 1b6:	1f 90       	pop	r1
+ 1b8:	18 95       	reti
 
-00000216 <__vector_11>:
+000001ba <__vector_11>:
 
 ISR(USART_RXC_vect){
- 216:	1f 92       	push	r1
- 218:	0f 92       	push	r0
- 21a:	0f b6       	in	r0, 0x3f	; 63
- 21c:	0f 92       	push	r0
- 21e:	11 24       	eor	r1, r1
- 220:	2f 93       	push	r18
- 222:	3f 93       	push	r19
- 224:	4f 93       	push	r20
- 226:	5f 93       	push	r21
- 228:	6f 93       	push	r22
- 22a:	7f 93       	push	r23
- 22c:	8f 93       	push	r24
- 22e:	9f 93       	push	r25
- 230:	af 93       	push	r26
- 232:	bf 93       	push	r27
- 234:	ef 93       	push	r30
- 236:	ff 93       	push	r31
-	
-	command=UDR; //commands in main
- 238:	8c b1       	in	r24, 0x0c	; 12
- 23a:	80 93 62 00 	sts	0x0062, r24
-	
-	if (command == 'b')
- 23e:	82 36       	cpi	r24, 0x62	; 98
- 240:	39 f4       	brne	.+14     	; 0x250 <__vector_11+0x3a>
-	{
-		Drive(0,0);
- 242:	60 e0       	ldi	r22, 0x00	; 0
- 244:	80 e0       	ldi	r24, 0x00	; 0
- 246:	54 df       	rcall	.-344    	; 0xf0 <Drive>
-		PORTC &= ~(1<<PC4);
- 248:	ac 98       	cbi	0x15, 4	; 21
-		PORTD |=(1<<PD4)|(1<<PD5)|(1<<PD6)|(1<<PD7);
- 24a:	82 b3       	in	r24, 0x12	; 18
- 24c:	80 6f       	ori	r24, 0xF0	; 240
- 24e:	82 bb       	out	0x12, r24	; 18
+ 1ba:	1f 92       	push	r1
+ 1bc:	0f 92       	push	r0
+ 1be:	0f b6       	in	r0, 0x3f	; 63
+ 1c0:	0f 92       	push	r0
+ 1c2:	11 24       	eor	r1, r1
+ 1c4:	2f 93       	push	r18
+ 1c6:	3f 93       	push	r19
+ 1c8:	4f 93       	push	r20
+ 1ca:	5f 93       	push	r21
+ 1cc:	6f 93       	push	r22
+ 1ce:	7f 93       	push	r23
+ 1d0:	8f 93       	push	r24
+ 1d2:	9f 93       	push	r25
+ 1d4:	af 93       	push	r26
+ 1d6:	bf 93       	push	r27
+ 1d8:	ef 93       	push	r30
+ 1da:	ff 93       	push	r31
+	PORTD ^=(1<<ledBackLeft);
+ 1dc:	92 b3       	in	r25, 0x12	; 18
+ 1de:	80 e1       	ldi	r24, 0x10	; 16
+ 1e0:	89 27       	eor	r24, r25
+ 1e2:	82 bb       	out	0x12, r24	; 18
+	unsigned char command=UDR; //commands in main
+ 1e4:	8c b1       	in	r24, 0x0c	; 12
 	}
-	if (command == 'c')
- 250:	80 91 62 00 	lds	r24, 0x0062
- 254:	83 36       	cpi	r24, 0x63	; 99
- 256:	49 f4       	brne	.+18     	; 0x26a <__vector_11+0x54>
+	if (command == 'e') //Battle Stop
 	{
-		Drive(255,255);
- 258:	6f ef       	ldi	r22, 0xFF	; 255
- 25a:	8f ef       	ldi	r24, 0xFF	; 255
- 25c:	49 df       	rcall	.-366    	; 0xf0 <Drive>
-		PORTC &= ~((1<<PC4)|(1<<PD5)|(1<<PD4));
- 25e:	85 b3       	in	r24, 0x15	; 21
- 260:	8f 7c       	andi	r24, 0xCF	; 207
- 262:	85 bb       	out	0x15, r24	; 21
-		PORTD |= (1<<PD6)|(1<<PD7);
- 264:	82 b3       	in	r24, 0x12	; 18
- 266:	80 6c       	ori	r24, 0xC0	; 192
- 268:	82 bb       	out	0x12, r24	; 18
+		
 	}
- 26a:	ff 91       	pop	r31
- 26c:	ef 91       	pop	r30
- 26e:	bf 91       	pop	r27
- 270:	af 91       	pop	r26
- 272:	9f 91       	pop	r25
- 274:	8f 91       	pop	r24
- 276:	7f 91       	pop	r23
- 278:	6f 91       	pop	r22
- 27a:	5f 91       	pop	r21
- 27c:	4f 91       	pop	r20
- 27e:	3f 91       	pop	r19
- 280:	2f 91       	pop	r18
- 282:	0f 90       	pop	r0
- 284:	0f be       	out	0x3f, r0	; 63
- 286:	0f 90       	pop	r0
- 288:	1f 90       	pop	r1
- 28a:	18 95       	reti
+	if (command == 'f')//Follow Line
+ 1e6:	86 36       	cpi	r24, 0x66	; 102
+ 1e8:	11 f4       	brne	.+4      	; 0x1ee <__vector_11+0x34>
+	{
+		Output(125);
+ 1ea:	8d e7       	ldi	r24, 0x7D	; 125
+ 1ec:	81 df       	rcall	.-254    	; 0xf0 <Output>
+	}
+	if (command == 's')//Switch Off
+	{
+		
+	}
+ 1ee:	ff 91       	pop	r31
+ 1f0:	ef 91       	pop	r30
+ 1f2:	bf 91       	pop	r27
+ 1f4:	af 91       	pop	r26
+ 1f6:	9f 91       	pop	r25
+ 1f8:	8f 91       	pop	r24
+ 1fa:	7f 91       	pop	r23
+ 1fc:	6f 91       	pop	r22
+ 1fe:	5f 91       	pop	r21
+ 200:	4f 91       	pop	r20
+ 202:	3f 91       	pop	r19
+ 204:	2f 91       	pop	r18
+ 206:	0f 90       	pop	r0
+ 208:	0f be       	out	0x3f, r0	; 63
+ 20a:	0f 90       	pop	r0
+ 20c:	1f 90       	pop	r1
+ 20e:	18 95       	reti
 
-0000028c <_exit>:
- 28c:	f8 94       	cli
+00000210 <main>:
 
-0000028e <__stop_program>:
- 28e:	ff cf       	rjmp	.-2      	; 0x28e <__stop_program>
+char state;
+
+int main(void)
+{
+	fighting = 0;
+ 210:	10 92 6c 00 	sts	0x006C, r1
+	sei();           // Globale Interrupts aktivieren
+ 214:	78 94       	sei
+	InitDDR();
+ 216:	5a df       	rcall	.-332    	; 0xcc <InitDDR>
+	InitPWM();
+ 218:	4c df       	rcall	.-360    	; 0xb2 <InitPWM>
+	InitTIM0();
+ 21a:	63 df       	rcall	.-314    	; 0xe2 <InitTIM0>
+	InitADC(1,0);
+ 21c:	60 e0       	ldi	r22, 0x00	; 0
+ 21e:	81 e0       	ldi	r24, 0x01	; 1
+ 220:	26 df       	rcall	.-436    	; 0x6e <InitADC>
+	InitUART();
+ 222:	1d df       	rcall	.-454    	; 0x5e <InitUART>
+ 224:	80 91 64 00 	lds	r24, 0x0064
+	while (fighting)
+ 228:	90 91 6c 00 	lds	r25, 0x006C
+ 22c:	91 11       	cpse	r25, r1
+ 22e:	ff cf       	rjmp	.-2      	; 0x22e <main+0x1e>
+ 230:	80 93 64 00 	sts	0x0064, r24
+				Attack();
+			break;
+				
+		}
+	}
+ 234:	80 e0       	ldi	r24, 0x00	; 0
+ 236:	90 e0       	ldi	r25, 0x00	; 0
+ 238:	08 95       	ret
+
+0000023a <_exit>:
+ 23a:	f8 94       	cli
+
+0000023c <__stop_program>:
+ 23c:	ff cf       	rjmp	.-2      	; 0x23c <__stop_program>
