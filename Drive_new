@@ -1,0 +1,27 @@
+boolean lastdrive_l =0, lastdrive_r=0;
+
+void Drive(char richtung_l, char richtung_r){ //Maybe we don't really need it
+  if (richtung_l < 0 && lastdrive_l){
+    //ports auf rückwärts für links
+  }
+  else if (richtung_l >0 && !lastdrive_l){
+    //ports auf vorwärts links
+  }
+  
+  if (richtung_r<0 && lastdrive_r){
+    //ports auf rückwärts für rechts
+  }
+  else if (richtung_r>0 && !lastdrive_r){
+    //ports auf vorwärts für rechts
+  }
+  
+  Drive_direction(richtung_r*2, richtung_r*2);
+}
+
+void Drive_direction(unsigned char rightWheel, unsigned char leftWheel){
+	OCR1AH = 0x00; //Maybe we need to change this to go to full speed
+	OCR1AL = leftWheel;
+	
+	OCR1BH = 0x00;
+	OCR1BL = rightWheel;
+}
